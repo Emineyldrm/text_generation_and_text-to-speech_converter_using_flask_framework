@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Sonuç</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #dac0a3;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .title-container {
+        max-width: 600px;
+        padding: 20px;
+        background-color: #f8f0e5;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .container {
+        max-width: 600px;
+        padding: 20px;
+        background-color: #eadbc8;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .abc {
+        margin-bottom: 10px;
+      }
+
+      p {
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      audio {
+        margin-bottom: 20px;
+        width: 100%;
+        border-radius: 5px;
+      }
+
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #102c57;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      .button:hover {
+        background-color: #102c57;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="title-container">
+        <h1>Üretilen Metin ve Seslendirilmesi</h1>
+      </div>
+      <div class="container">
+        <h3 class="abc">Sorduğunuz Soru: {{soru}}</h3>
+        <p>Cevap: {{ response }}</p>
+        <br />
+        <audio controls>
+          <source
+            src="{{ url_for('static', filename='ses.mp3') }}"
+            type="audio/mpeg"
+          />
+          <!-- <i class="fa-solid fa-volume"></i> -->
+        </audio>
+        <br />
+        <a href="/" class="button">Tekrar Soru Sor</a>
+      </div>
+    </div>
+  </body>
+</html>

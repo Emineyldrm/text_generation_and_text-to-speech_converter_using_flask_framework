@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Otomatik Metin Üretimi ve Seslendirilmesi Uygulaması</title>
+    <style>
+      body {
+        background-color: #dac0a3; /* Arka plan rengi */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .container {
+        text-align: center;
+        width: 80%; /* Sayfa genişliğinin %80'i */
+        max-width: 800px; /* Maksimum genişlik */
+      }
+
+      .title-box {
+        background-color: #eadbc8;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+
+      form {
+        background-color: #eadbc8; /* Form arka plan rengi */
+        padding: 20px;
+        border: none;
+        border-radius: 10px; /* Kenar yuvarlaklığı */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+      }
+
+      input[type="text"] {
+        width: 100%; /* Form genişliğinin %100'ü */
+        max-width: 95%; /* Maksimum genişlik */
+        height: 100px;
+        padding: 10px;
+        margin: 20px auto 40px auto; /* Kenar boşlukları */
+        box-sizing: border-box;
+        background-color: #f8f0e5 !important;
+        border: 1px solid #ccc;
+        border-radius: 5px; /* Kenar yuvarlaklığı */
+      }
+
+      button[type="submit"] {
+        width: 80%; /* Form genişliğinin %80'i */
+        max-width: 600px; /* Maksimum genişlik */
+        height: 50px;
+        padding: 10px;
+        background-color: #102c57;
+        color: #f8f0e5;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 20px; /* Font büyüklüğü */
+      }
+
+      button[type="submit"]:hover {
+        background-color: #102c57 !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="title-box">
+        <h1>Otomatik Metin Üretimi</h1>
+      </div>
+      <form action="/submit" method="post">
+        <input type="text" name="soru" placeholder="Sorunuzu girin..." />
+        <button type="submit">Metin Üret</button>
+      </form>
+    </div>
+  </body>
+</html>
