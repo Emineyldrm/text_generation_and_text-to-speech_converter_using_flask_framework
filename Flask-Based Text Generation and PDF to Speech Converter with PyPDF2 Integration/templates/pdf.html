@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <style>
+      .navbar {
+        height: 80px; /* Yüksekliği ayarlayın */
+        background-color: #d2e3c8; /* Arka plan rengini ayarlayın cde8e5 b3c8cf  bed7dc*/
+      }
+      .nav-link {
+        line-height: 80px; /* Yüksekliğe uygun olarak ortalamak için */
+        font-size: 1.5rem; /* Yazı boyutunu ayarlayın */
+        color: black; /* Yazı rengini siyah yapın */
+      }
+      .title-box {
+        background-color: #e0fbe2;
+      }
+      h3,
+      h5 {
+        color: #151515;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      li {
+        margin-bottom: 10px;
+      }
+      strong {
+        color: #151515;
+      }
+      li strong {
+        width: 200px;
+        text-align: right;
+        margin-right: 10px;
+        flex-shrink: 0;
+      }
+      .container {
+        width: 95%;
+        max-width: 1800px;
+      }
+      .x {
+        text-align: center;
+      }
+
+      .card-title {
+        margin-bottom: 20px;
+      }
+
+      form {
+        background-color: #ffff;
+      }
+      #pdf_dosyasi {
+        display: none;
+      }
+
+      label[for="pdf_dosyasi"] {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      #file-name {
+        margin-left: 10px;
+        font-style: italic;
+        color: #555;
+      }
+      button[type="submit"] {
+        width: 80%;
+        max-width: 600px;
+        height: 50px;
+        padding: 10px;
+        background-color: #102c57;
+        color: #f8f0e5;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 20px;
+      }
+
+      .scrollspy-example-2 {
+        height: 300px;
+        overflow-y: scroll;
+        padding: 20px;
+        border: 1px solid #dee2e6;
+        border-radius: 0.25rem;
+        /*background-color: #9cb94c;*/
+        /* display: none; */
+      }
+      .btn-download {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: white;
+        background-color: #007bff;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn-download:hover {
+        background-color: #0056b3;
+      }
+      .footer {
+        background-color: #343a40;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar d-flex justify-content-center" data-bs-theme="dark">
+      <ul class="nav nav-pills nav-fill">
+        <li class="nav-item">
+          <a class="nav-link" href="/anasayfa">Anasayfa</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/">Metin Üretimi</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/pdf">Pdf Dosyaları</a>
+        </li>
+      </ul>
+    </nav>
+
+    <br />
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="card title-box">
+          <div class="card-body">
+            <div class="title-box">
+              <h5>
+                PDF Dosyasını MP3 ve WORD Dosyasına Nasıl Dönüştürebilirim?
+              </h5>
+              <ul>
+                <li>1. Dönüştürmek istediğiniz PDF dosyasını seçin.</li>
+                <li>2. PDF dosyasının yazıldığı dili belirtin.</li>
+                <li>
+                  3. İşlem yapmak istediğiniz PDF dosyasınn Başlangıç ve Bitiş
+                  sayfa aralığını seçin.
+                </li>
+                <li>
+                  4. Yükle butonuna basarak PDF metninin sayfa üzerinde
+                  görünmesini sağlayın.
+                </li>
+                <li>
+                  5. İstenilen metni sayfa üzerinde dinleyebilir ya da "Ses
+                  Dosyasını İndir" butonuna basarak MP3 formatında
+                  indirebilirsiniz.
+                </li>
+                <li>
+                  6. İstenilen metni WORD belgesi olarak indirmek için "WORD
+                  Dosyasını İndir" butonuna basın.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+
+    <div class="container x">
+      <div class="row justify-content-center">
+        <div class="card">
+          <div class="card-body">
+            <form
+              action="{{ url_for('upload_pdf') }}"
+              method="post"
+              enctype="multipart/form-data"
+            >
+              <div class="col mb-3">
+                <label for="pdf_dosyasi">PDF Dosyası Yükle:</label>
+                <input
+                  type="file"
+                  name="pdf_dosyasi"
+                  id="pdf_dosyasi"
+                  accept="application/pdf"
+                />
+                <span id="file-name">Dosya seçilmedi</span>
+              </div>
+              <div class="col mb-3">
+                <label for="language">Giriş Dilini Belirtiniz:</label>
+                <select name="language" id="language" class="form-select">
+                  <option value="tr">Türkçe</option>
+                  <option value="en">İngilizce</option>
+                  <option value="fr">Fransızca</option>
+                  <option value="de">Almanca</option>
+                </select>
+              </div>
+
+              <!-- <div class="col mb-3">
+                <label for="pdf_dosyasi">PDF Dosyası Yükle:</label>
+                <input
+                  type="file"
+                  name="pdf_dosyasi"
+                  id="pdf_dosyasi"
+                  accept="application/pdf"
+                />
+              </div> -->
+              <div class="col mb-3">
+                <label for="baslangic_sayfa">Başlangıç Sayfası:</label>
+                <input
+                  type="number"
+                  name="baslangic_sayfa"
+                  id="baslangic_sayfa"
+                  min="1"
+                />
+                <label for="bitis_sayfa">Bitiş Sayfası:</label>
+                <input
+                  type="number"
+                  name="bitis_sayfa"
+                  id="bitis_sayfa"
+                  min="1"
+                />
+              </div>
+              <div class="col mb-3">
+                <button type="submit">Yükle</button>
+                <!--value="Yükle" -->
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div
+          data-bs-spy="scroll"
+          data-bs-target="#navbar-example3"
+          data-bs-smooth-scroll="true"
+          class="scrollspy-example-2"
+          tabindex="0"
+        >
+          <!-- <h5 class="card-title">PDF İçeriği</h5> -->
+          {{ pdf_icerik | safe }}
+        </div>
+      </div>
+    </div>
+    <br />
+    <div class="container x">
+      <div class="row justify-content-center">
+        <div class="card">
+          <div class="card-body">
+            <div class="col mb-3">
+              <audio controls>
+                <source
+                  src="{{ url_for('static', filename=audio_file) }}"
+                  type="audio/mpeg"
+                />
+                <!-- <i class="fa-solid fa-volume"></i> -->
+              </audio>
+            </div>
+            <div class="col mb-3">
+              <a
+                href="{{ url_for('static', filename=audio_file) }}"
+                download
+                class="btn-download"
+                >Ses Dosyasını İndir</a
+              >
+              <a
+                href="{{ url_for('download_docx', pdf_content=pdf_icerik) }}"
+                class="btn-download"
+                >WORD Dosyasını İndir</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      &copy; 2024 Otomatik Metin Üretimi & PDF Metinlerinin Seslendirilmesi
+      <br />
+      Tüm Hakları Saklıdır.
+    </div>
+
+    <script>
+      document
+        .getElementById("pdf_dosyasi")
+        .addEventListener("change", function () {
+          var fileName = this.files[0] ? this.files[0].name : "Dosya seçilmedi";
+          document.getElementById("file-name").textContent = fileName;
+        });
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
