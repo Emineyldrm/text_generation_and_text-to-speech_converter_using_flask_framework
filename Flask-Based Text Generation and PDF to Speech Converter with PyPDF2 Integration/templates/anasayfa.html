@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Otomatik Metin Üretimi ve Seslendirilmesi Uygulaması</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- <link rel="stylesheet" href="style_all.css" /> -->
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style_all.css') }}" /> -->
+    <style>
+      .navbar {
+        height: 80px; /* Yüksekliği ayarlayın */
+        background-color: #d2e3c8; /* Arka plan rengini ayarlayın */
+      }
+      .nav-link {
+        line-height: 80px; /* Yüksekliğe uygun olarak ortalamak için */
+        font-size: 1.5rem; /* Yazı boyutunu ayarlayın */
+        color: black; /* Yazı rengini siyah yapın */
+      }
+      .title-box {
+        background-color: #e0fbe2; /* padding: 20px; */
+        /* border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px; */
+      }
+
+      h3,
+      h5 {
+        color: #151515;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      li {
+        margin-bottom: 10px;
+      }
+      strong {
+        color: #151515;
+      }
+      li strong {
+        width: 200px;
+        text-align: right;
+        margin-right: 10px;
+        flex-shrink: 0;
+      }
+      .container {
+        /* text-align: center; */
+        width: 95%;
+        max-width: 1800px;
+      }
+      .x {
+        text-align: center;
+      }
+      .footer {
+        background-color: #343a40;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar d-flex justify-content-center" data-bs-theme="dark">
+      <ul class="nav nav-pills nav-fill">
+        <li class="nav-item">
+          <a class="nav-link" href="/anasayfa">Anasayfa</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/">Metin Üretimi</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/pdf">Pdf Dosyaları</a>
+        </li>
+      </ul>
+    </nav>
+    <br />
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="card title-box">
+          <div class="card-body">
+            <div class="title-box">
+              <h3>Metin Üretmenin Kolay ve Eğlenceli Yolu</h3>
+              <p>
+                Merhaba ve hoş geldiniz! Sitemizde, belirli bir konuda otomatik
+                olarak metin üretmenin kolaylığını ve eğlencesini
+                keşfedeceksiniz. İster bir proje için hızlı bir yazı
+                oluşturmanız gerek, ister sadece merakınızı gidermek için
+                eğlenmek isteyin, burası tam size göre!
+              </p>
+              <h5>Farklı Dil Seçenekleri</h5>
+              <p>
+                Hangi dilde metin üretmek isterseniz isteyin, sitemiz sizin için
+                doğru bir çözüm sunar. Geniş dil seçenekleriyle, uluslararası
+                projelerde veya çeşitli kitlelere hitap eden içeriklerde
+                rahatlıkla kullanabilirsiniz.
+              </p>
+              <h5>Yapay Zeka Destekli Metin Üretimi</h5>
+              <p>
+                Girdiğiniz sorulara göre anında muhteşem metinler oluşturur. Hem
+                yazılı hem de sesli versiyonları sayfa üzerinde
+                görüntüleyebilir, isterseniz indirebilirsiniz. Böylece, içerik
+                üretmek için uzun saatler harcamanıza gerek kalmaz!
+              </p>
+              <h5>Eğlenceli ve Verimli Bir Deneyim</h5>
+              <p>
+                Sitemizi kullanarak metin üretimini eğlenceli ve verimli bir
+                deneyime dönüştürün. İster profesyonel projelerde kullanın,
+                ister kişisel merakınızı gidermek için eğlenin, burada her türlü
+                ihtiyacınızı karşılayacak bir çözüm bulacaksınız.
+                Yaratıcılığınızı ortaya çıkarın ve yapay zekanın gücünden
+                faydalanarak içerik üretiminin keyfini çıkarın!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div class="container">
+      <div class="row">
+        <div class="card title-box">
+          <div class="card-body">
+            <div class="title-box">
+              <h3>PDF Dosyalarıyla Çalışmak Artık Çok Kolay!</h3>
+              <p>
+                Artık PDF dosyalarınızla çalışmak çok daha eğlenceli ve kolay
+                hale geldi. Web sitemizde, yüklediğiniz PDF dosyalarının
+                metinlerini istenilen sayfa aralığında görüntüleyebilir ve
+                üzerinde rahatça çalışabilirsiniz.
+              </p>
+              <h5>Metinleri Sayfa Üzerinde Görüntüleyin</h5>
+              <p>
+                İster iş raporlarınızı gözden geçirin, ister okul projelerinizi
+                düzenleyin, yüklediğiniz PDF dosyalarının metinlerini seçtiğiniz
+                sayfa aralığında hızlıca görüntüleyebilirsiniz. Bu özellik
+                sayesinde uzun PDF'lerde kaybolmadan, ihtiyacınız olan bilgilere
+                kolayca ulaşabilirsiniz.
+              </p>
+              <h5>İstediğiniz Metin Aralığını Word Dosyası Olarak İndirin</h5>
+              <p>
+                PDF'deki önemli bölümleri almak ve düzenlemek mi istiyorsunuz?
+                Hiç sorun değil! Sitemiz sayesinde, belirlediğiniz metin
+                aralıklarını kolayca bir Word dosyasına dönüştürüp
+                bilgisayarınıza indirebilirsiniz. Artık kopyala-yapıştır
+                işlemleriyle vakit kaybetmenize gerek yok. İşlerinizi hızlı ve
+                pratik bir şekilde halledebilirsiniz.
+              </p>
+              <h5>Metinleri Seslendirin ve Dinleyin</h5>
+              <p>
+                Bir diğer harika özellik ise, seçtiğiniz metin aralıklarını
+                sayfa üzerinde seslendirebilme imkanınız. İster gözlerinizi
+                dinlendirin, ister metinlerinizi dinleyerek çalışın, bu özellik
+                sayesinde PDF'lerinizle daha interaktif bir şekilde
+                çalışabileceksiniz. Sadece metinleri değil, aynı zamanda
+                kelimeleri de canlandırıyoruz!
+              </p>
+              <p>
+                PDF dosyalarıyla çalışmak artık hiç olmadığı kadar kolay ve
+                keyifli. Sitemizin sunduğu bu yeniliklerle işlerinizde hız
+                kazanacak, verimliliğinizi artıracak ve daha eğlenceli bir
+                çalışma deneyimi yaşayacaksınız.
+              </p>
+              <!-- <p>Web sitemizi keşfedin, PDF dünyasında fark yaratın!</p> -->
+              <!-- <ul>
+                      <li><strong>Metinleri Görüntüleyin</strong>: İstediğiniz sayfa aralığındaki metinleri hızlıca görüntüleyin.</li>
+                      <li><strong>Word Dosyasına Dönüştürün</strong>: Seçtiğiniz metin aralıklarını Word dosyası olarak indirin.</li>
+                      <li><strong>Metinleri Seslendirin</strong>: Metinleri sesli olarak dinleyin.</li>
+                  </ul>
+                  <p>PDF'lerle çalışmak hiç bu kadar basit ve eğlenceli olmamıştı!</p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div class="footer">
+      &copy; 2024 Otomatik Metin Üretimi & PDF Metinlerinin Seslendirilmesi
+      <br />
+      Tüm Hakları Saklıdır.
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
